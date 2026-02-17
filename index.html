@@ -1,40 +1,405 @@
-<!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
-<head>
+<html lang="fr" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youth Foundation Haiti</title>
+    <title>Condor École de Football – Haïti</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        
-        /* Custom Marquee Animation */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-scroll {
-            animation: scroll 30s linear infinite;
-        }
-        
-        /* Hide scrollbar for clean UI */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: #e5e5e5; border-radius: 20px; }
+        /* Hiding native form elements for custom styling */
+        input[type="checkbox"], input[type="radio"] { accent-color: #dc2626; }
     </style>
 </head>
-<body class="bg-white text-gray-600 antialiased selection:bg-gray-900 selection:text-white">
+<body class="bg-white text-neutral-800 antialiased selection:bg-red-100 selection:text-red-900">
 
-    <!-- 1. HEADER + NAVBAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-neutral-100 bg-white/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="h-8 w-8 bg-neutral-900 text-white flex items-center justify-center rounded-lg font-semibold tracking-tighter group-hover:bg-red-600 transition-colors duration-300">
+                    C
+                </div>
+                <span class="text-sm font-semibold tracking-tight uppercase text-neutral-900">Condor<span class="text-red-600">.</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors">À propos</a>
+                <a href="#categories" class="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors">Catégories</a>
+                <a href="#gallery" class="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors">Galerie</a>
+                <a href="#contact" class="text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors">Contact</a>
+            </div>
+
+            <!-- CTA -->
+            <a href="#join" class="hidden md:flex items-center gap-2 bg-neutral-900 text-white px-4 py-2 rounded-lg text-xs font-medium tracking-wide hover:bg-neutral-800 transition-all hover:shadow-lg hover:shadow-neutral-200">
+                Rejoindre
+                <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            </a>
+
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-neutral-900">
+                <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-50 via-white to-white opacity-70"></div>
+            <!-- Subtle grid pattern -->
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 bg-white/50 mb-8 animate-fade-in-up">
+                <span class="flex h-2 w-2 rounded-full bg-red-500"></span>
+                <span class="text-xs font-medium text-neutral-600 tracking-wide uppercase">École de Football Haïtienne</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-semibold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+                Condor École de<br class="hidden md:block"> <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-neutral-500">Football – Haïti</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-neutral-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Former les talents de demain avec discipline, unité et passion. Rejoignez l'élite du football junior.
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#join" class="w-full md:w-auto px-8 py-3 bg-red-600 text-white rounded-xl text-sm font-medium hover:bg-red-700 transition-all shadow-lg shadow-red-200 flex items-center justify-center gap-2">
+                    Rejoindre l'équipe
+                    <iconify-icon icon="solar:football-linear" width="18"></iconify-icon>
+                </a>
+                <a href="#about" class="w-full md:w-auto px-8 py-3 bg-white border border-neutral-200 text-neutral-700 rounded-xl text-sm font-medium hover:bg-neutral-50 transition-all flex items-center justify-center gap-2">
+                    En savoir plus
+                </a>
+            </div>
+
+            <!-- Hero Image Composition -->
+            <div class="mt-16 md:mt-24 relative max-w-5xl mx-auto group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-neutral-900 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+                <div class="relative rounded-xl overflow-hidden shadow-2xl border border-neutral-100 aspect-video md:aspect-[21/9]">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&amp;w=2568&amp;auto=format&amp;fit=crop" alt="Jeunes joueurs football Haiti" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-white">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <iconify-icon icon="solar:cup-star-linear" class="text-red-600 mb-6 text-4xl"></iconify-icon>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 mb-6">L'excellence au cœur du jeu</h2>
+            <p class="text-neutral-500 leading-relaxed text-base md:text-lg">
+                Condor École de Football est une institution haïtienne fondée en 2022. Notre mission est de former de jeunes talents sur le plan sportif, moral et social, en mettant l’accent sur la discipline, le travail d’équipe et la passion du football. Nous croyons que chaque enfant mérite une chance de briller.
+            </p>
+        </div>
+    </section>
+
+    <!-- Values Grid -->
+    <section class="py-20 bg-neutral-50 border-y border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+                    <div class="h-12 w-12 bg-neutral-100 rounded-lg flex items-center justify-center mb-6 text-neutral-900">
+                        <iconify-icon icon="solar:shield-check-linear" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3 tracking-tight">Discipline</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Respect des règles, des entraîneurs et des adversaires. La base de tout succès sportif et humain.
+                    </p>
+                </div>
+                <!-- Value 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+                    <div class="h-12 w-12 bg-red-50 rounded-lg flex items-center justify-center mb-6 text-red-600">
+                        <iconify-icon icon="solar:users-group-rounded-linear" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3 tracking-tight">Esprit d’équipe</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        La cohésion et la solidarité avant tout. Sur le terrain comme en dehors, nous avançons ensemble.
+                    </p>
+                </div>
+                <!-- Value 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+                    <div class="h-12 w-12 bg-neutral-100 rounded-lg flex items-center justify-center mb-6 text-neutral-900">
+                        <iconify-icon icon="solar:heart-angle-linear" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3 tracking-tight">Passion</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        L’amour du football comme moteur de réussite. Transformer l'énergie en performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl font-semibold tracking-tight text-neutral-900 mb-2">Nos Catégories</h2>
+                    <p class="text-neutral-500">Un parcours adapté à chaque âge.</p>
+                </div>
+                <div class="h-px flex-1 bg-neutral-100 mx-8 hidden md:block"></div>
+                <button class="text-sm font-medium text-red-600 flex items-center gap-1 hover:gap-2 transition-all">
+                    Voir le programme <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- U13 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] bg-neutral-900">
+                    <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&amp;w=2029&amp;auto=format&amp;fit=crop" class="absolute inset-0 h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="U13">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full mb-3 border border-white/10">8 - 12 ans</span>
+                        <h3 class="text-2xl font-semibold text-white mb-2 tracking-tight">Catégorie U13</h3>
+                        <p class="text-neutral-300 text-sm">Initiation et bases techniques du football.</p>
+                    </div>
+                </div>
+
+                <!-- U15 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] bg-neutral-900 border-2 border-red-600">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider z-10">Compétition</div>
+                    <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&amp;w=1949&amp;auto=format&amp;fit=crop" class="absolute inset-0 h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="U15">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full mb-3 border border-white/10">13 - 15 ans</span>
+                        <h3 class="text-2xl font-semibold text-white mb-2 tracking-tight">Catégorie U15</h3>
+                        <p class="text-neutral-300 text-sm">Développement tactique et compétitif.</p>
+                    </div>
+                </div>
+
+                <!-- U17 -->
+                <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] bg-neutral-900">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&amp;w=1935&amp;auto=format&amp;fit=crop" class="absolute inset-0 h-full w-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="U17">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-semibold rounded-full mb-3 border border-white/10">16 - 17 ans</span>
+                        <h3 class="text-2xl font-semibold text-white mb-2 tracking-tight">Catégorie U17</h3>
+                        <p class="text-neutral-300 text-sm">Équipe élite participant aux tournois locaux.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performances & News -->
+    <section class="py-20 bg-neutral-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-red-600/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="rounded-xl object-cover h-64 w-full border border-white/10" alt="Trophée">
+                        <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="rounded-xl object-cover h-64 w-full mt-8 border border-white/10" alt="Match Action">
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="inline-flex items-center gap-2 mb-6 text-red-500">
+                        <iconify-icon icon="solar:medal-ribbon-star-linear" width="20"></iconify-icon>
+                        <span class="text-sm font-semibold tracking-wide uppercase">Performances</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Des résultats qui prouvent notre engagement</h2>
+                    <p class="text-neutral-400 mb-8 leading-relaxed">
+                        Condor École de Football participe activement aux tournois locaux et régionaux. Nos équipes U15 et U17 ont déjà remporté plusieurs trophées et finales importantes, prouvant la qualité de notre formation et l’engagement de nos joueurs sur le terrain.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-8 border-t border-white/10 pt-8">
+                        <div>
+                            <div class="text-3xl font-semibold text-white tracking-tight">15+</div>
+                            <div class="text-sm text-neutral-500 mt-1">Tournois Joués</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-semibold text-white tracking-tight">4</div>
+                            <div class="text-sm text-neutral-500 mt-1">Trophées Majeurs</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-semibold text-white tracking-tight">100%</div>
+                            <div class="text-sm text-neutral-500 mt-1">Passion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+            <h2 class="text-3xl font-semibold tracking-tight text-neutral-900 mb-4">Notre Galerie</h2>
+            <p class="text-neutral-500">Moments forts, entraînements et victoires.</p>
+        </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px] md:h-[600px]">
+                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1510566337590-2fc1f21d0faa?q=80&amp;w=2069&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Training">
+                </div>
+                <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Match">
+                </div>
+                <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1628891564759-4d896191b22e?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Team">
+                </div>
+                <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1556056504-5c7696c4c28d?q=80&amp;w=1952&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Boots">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration CTA -->
+    <section id="join" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="relative bg-neutral-900 rounded-3xl p-10 md:p-16 text-center overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-red-600 rounded-full blur-[100px] opacity-30 pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-4">Tu veux rejoindre Condor ?</h2>
+                    <p class="text-neutral-400 max-w-xl mx-auto mb-10 text-lg">
+                        Inscris-toi et fais partie d’une famille sportive qui croit en ton potentiel. Les inscriptions sont ouvertes pour la saison 2026.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-red-600 text-white px-8 py-4 rounded-xl text-sm font-semibold hover:bg-red-500 transition-all shadow-lg shadow-red-900/50 hover:scale-[1.02]">
+                        S’inscrire maintenant
+                        <iconify-icon icon="solar:pen-new-square-linear" width="18"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section id="contact" class="py-20 bg-neutral-50 border-t border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Info -->
+                <div>
+                    <h2 class="text-3xl font-semibold tracking-tight text-neutral-900 mb-6">Contactez-nous</h2>
+                    <p class="text-neutral-500 mb-10">
+                        Vous avez des questions ou souhaitez inscrire votre enfant ? Remplissez le formulaire ou contactez-nous directement.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 shrink-0">
+                                <iconify-icon icon="solar:phone-calling-linear" width="20"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-neutral-900">Téléphone</h4>
+                                <p class="text-neutral-500 text-sm mt-1">+509 XXXXXXXX</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 shrink-0">
+                                <iconify-icon icon="solar:letter-linear" width="20"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-neutral-900">Email</h4>
+                                <p class="text-neutral-500 text-sm mt-1">contact@condorhaiti.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 shrink-0">
+                                <iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-neutral-900">Localisation</h4>
+                                <p class="text-neutral-500 text-sm mt-1">Port-au-Prince, Haïti</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-2 gap-5">
+                            <div class="col-span-2 md:col-span-1 space-y-2">
+                                <label class="text-xs font-semibold text-neutral-700 uppercase tracking-wide">Nom</label>
+                                <input type="text" class="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder-neutral-400" placeholder="Nom de famille">
+                            </div>
+                            <div class="col-span-2 md:col-span-1 space-y-2">
+                                <label class="text-xs font-semibold text-neutral-700 uppercase tracking-wide">Prénom</label>
+                                <input type="text" class="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder-neutral-400" placeholder="Prénom">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-5">
+                            <div class="col-span-2 md:col-span-1 space-y-2">
+                                <label class="text-xs font-semibold text-neutral-700 uppercase tracking-wide">Âge</label>
+                                <input type="number" class="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder-neutral-400" placeholder="Âge du joueur">
+                            </div>
+                            <div class="col-span-2 md:col-span-1 space-y-2">
+                                <label class="text-xs font-semibold text-neutral-700 uppercase tracking-wide">Catégorie</label>
+                                <div class="relative">
+                                    <select class="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all appearance-none text-neutral-700">
+                                        <option>Choisir une catégorie</option>
+                                        <option>U13 (8-12 ans)</option>
+                                        <option>U15 (13-15 ans)</option>
+                                        <option>U17 (16-17 ans)</option>
+                                    </select>
+                                    <div class="absolute right-4 top-3.5 pointer-events-none text-neutral-500">
+                                        <iconify-icon icon="solar:alt-arrow-down-linear"></iconify-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-neutral-700 uppercase tracking-wide">Message</label>
+                            <textarea rows="4" class="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder-neutral-400" placeholder="Votre message..."></textarea>
+                        </div>
+
+                        <button type="button" class="w-full bg-neutral-900 text-white font-medium py-3 rounded-lg hover:bg-neutral-800 transition-all flex justify-center items-center gap-2">
+                            Envoyer le message
+                            <iconify-icon icon="solar:plain-3-linear" width="18"></iconify-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-6">
+                <div class="h-8 w-8 bg-neutral-900 text-white flex items-center justify-center rounded-lg font-semibold tracking-tighter">C</div>
+                <span class="text-lg font-semibold tracking-tight text-neutral-900">Condor</span>
+            </div>
+            
+            <div class="flex gap-8 mb-8">
+                <a href="#" class="text-neutral-400 hover:text-red-600 transition-colors">
+                    <iconify-icon icon="ic:baseline-facebook" width="24"></iconify-icon>
+                </a>
+                <a href="#" class="text-neutral-400 hover:text-red-600 transition-colors">
+                    <iconify-icon icon="ri:instagram-fill" width="24"></iconify-icon>
+                </a>
+                <a href="#" class="text-neutral-400 hover:text-red-600 transition-colors">
+                    <iconify-icon icon="ic:baseline-tiktok" width="24"></iconify-icon>
+                </a>
+            </div>
+
+            <p class="text-sm text-neutral-400 font-medium">
+                © 2026 Condor École de Football – Haïti. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+
+</body></html>            <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
                 <div class="w-8 h-8 bg-gray-900 text-white flex items-center justify-center rounded-lg">
                     <span class="text-sm font-semibold tracking-tighter">YF</span>
@@ -574,4 +939,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
